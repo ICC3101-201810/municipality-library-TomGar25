@@ -12,7 +12,10 @@ namespace MUNICIPALIDAD
     {
         static void Main(string[] args)
         {
-            /*
+            /* ***************************************
+             * Al final del codigo estan los metodos que implementan los metodos de cada clase del dll,
+             * pero no estan dentro de la consola
+             * ****************************************
             Type t1 = typeof(Person);
             Console.WriteLine("Person");
             //t1.GetProperties() t1.GetMethods()
@@ -41,7 +44,7 @@ namespace MUNICIPALIDAD
             List<Address> addresses = new List<Address>();
 
             inicio:
-            Console.WriteLine("Agregar:\n"+"(1)Personas\n"+"(2)Vehiculos\n"+"(3)Propiedades");
+            Console.WriteLine("Agregar:\n"+"(1)Personas\n"+"(2)Vehiculos\n"+"(3)Propiedades\n"+ "(4)salir...");
             string res = Console.ReadLine();
             Console.Clear();
         
@@ -189,21 +192,31 @@ namespace MUNICIPALIDAD
                 }
                 Address a1 = new Address(r1,r22,r3,r4,null,r66,r77,r88,back,pul);
                 addresses.Add(a1);
+                
             }
-            
+            if (res == "4")
+            {
+                Console.WriteLine("bai");
+
+            }
             else
             {
                 imp1(personas);
                 imp2(cares);
                 imp3(addresses);
+                Console.WriteLine(  "Cualquier tecla para regresar a menu...");
                 Console.ReadLine();
                 goto inicio;
             }
+            
 
 
-            Console.ReadLine();
+            
 
         }
+
+
+
         public static void imp1(List<Person> list)
         {
             foreach (var t in list)
@@ -240,5 +253,67 @@ namespace MUNICIPALIDAD
                 Console.WriteLine("backyard: "+ t.Backyard);
             }
         }
+        public static void mpersona(Person p)
+        {
+            Console.WriteLine("(1)cabiar nombre (2)cambiar apellido (3)abandonado (4)adoptado (5)adoptado (6)cambiar educacion");
+            int r1 = int.Parse( Console.ReadLine());
+            switch (r1)
+            {
+                case 1:
+                    Console.WriteLine("nombre");
+                    string n = Console.ReadLine();
+                    p.changeFirstName(n);
+                    break;
+                case 2:
+                    Console.WriteLine("apellido");
+                    string n1 = Console.ReadLine();
+                    p.changeFirstName(n1);
+                    break;
+                case 3:
+                    p.getAbandoned();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    Console.WriteLine("alma mater");
+                    string n3 = Console.ReadLine();
+                    Console.WriteLine("degree");
+                    string n4 = Console.ReadLine();
+                    p.setEducation(n3,n4);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        public static void mcar(Car c, Person p)
+        {
+            c.giveUpOwnershipToThirdParty(p);
+        }
+        public static void maddress(Address a, Person p)
+        {
+            Console.WriteLine("Add: (1)bathrooms, (2)bedrooms, Cambiar dueño (3)");
+            string r = Console.ReadLine();
+            if (r == "1")
+            {
+                Console.WriteLine("Cuantos?");
+                Int32 r2 = Convert.ToInt32(Console.ReadLine());
+                a.addBathrooms(r2);
+
+            }
+            if (r=="2")
+            {
+                Console.WriteLine("Cuantos?");
+                Int32 r2 = Convert.ToInt32(Console.ReadLine());
+                a.addBeedrooms(r2);
+            }
+            if (r == "3")
+            {
+                a.changeOwner(p);
+            }
+        }
+
     }   
 }

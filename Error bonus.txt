@@ -1,2 +1,2 @@
 El error que hay dentro del dll, es que las personas requieren un Address para ser creadas y vice versa, si no hay personas no puedes crear las Address.
-Ademas en person hay dos atributos que tienen asociados metodos, pero no estan dentro del constructor, lso cuales son alma_mater y Professional degree.
+Ademas en person hay dos atributos que tienen asociados metodos, pero no estan dentro del constructor, los cuales son alma_mater y Professional degree, los cuales se pierde la informacion de estos dentro del codigo.
